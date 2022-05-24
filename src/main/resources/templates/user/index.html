@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+
+    <!--USING TH:BLOCK-->
+    <th:block th:each="user : ${users}">
+        <tr>
+            <td th:text="${user.username}">Default username</td>
+            <form>
+            <td th:value="${user.id}" th:text="${user.id}"><input >Default ID</td>
+            <td><a th:href="@{/user/details}" >Default link to details</a></td>
+            </form>
+        </tr>
+    </th:block>
+
+</table>
+<br>
+<br>
+
+<!--<p th:text="${'Welcome ' + user.username + '!'}">Default text</p>-->
+<a th:href="@{/}">Select your Spa Services</a>
+<br>
+<br>
+<!--<h2>List of Users</h2>-->
+<!--<ol th:each="user : ${users}">-->
+<!--    <li th:text="${user.username}"></li>-->
+<!--</ol>-->
+<br>
+<br>
+<a href="/user/add">Add another User</a>
+</body>
+</html>
