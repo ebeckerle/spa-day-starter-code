@@ -40,12 +40,12 @@ public class UserController {
         return "user/add";
     }
 
-    @GetMapping("details")
-    public String displayDetails(Model model){
-//        User displayUser = UserData.getById(id);
-//        model.addAttribute("username", displayUser.getUsername());
-        return "user/details";
-    }
+//    @GetMapping("details")
+//    public String displayDetails(Model model){
+////        User displayUser = UserData.getById(id);
+////        model.addAttribute("username", displayUser.getUsername());
+//        return "user/details";
+//    }
 
     @PostMapping("details")
     public String processRequestForDetails(@RequestParam Integer id,  Model model){

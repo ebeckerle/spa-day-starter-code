@@ -5,6 +5,12 @@
     <title th:text="${title}">Title</title>
 </head>
 <body>
+<h3 th:text="${'Details for ' + username}">Details for username</h3>
+<ul>
+    <li th:text="${username}">default username</li>
+    <li th:text="${'Email: ' + email}">default email</li>
+    <li th:text="${'Date Joined: ' + dateJoined}">default date joined</li>
+</ul>
 
 </body>
 </html>
