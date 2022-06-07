@@ -18,7 +18,7 @@ public class UserController {
     }
 
     @PostMapping
-    public String processAddUserForm(@ModelAttribute @Valid User user, Error errors, Model model, String verify) {
+    public String processAddUserForm(@ModelAttribute @Valid User user, Error errors, Model model) {
 //        model.addAttribute("user", user);
 //        model.addAttribute("verify", verify);
 //        model.addAttribute("username", user.getUsername());
@@ -36,8 +36,6 @@ public class UserController {
         }
         UserData.add(user);
         return "redirect:";
-
-
     }
 
 
