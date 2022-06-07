@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("user")
 public class UserController {
@@ -15,18 +17,25 @@ public class UserController {
     }
 
     @PostMapping
-    public String processAddUserForm(Model model, @ModelAttribute User user, String verify) {
-        model.addAttribute("user", user);
-        model.addAttribute("verify", verify);
-        model.addAttribute("username", user.getUsername());
-        model.addAttribute("email", user.getEmail());
-        if (user.getPassword().equals(verify)) {
-           return "user/index";
+    public String processAddUserForm(@ModelAttribute @Valid User user, Error errors, Model model, String verify) {
+//        model.addAttribute("user", user);
+//        model.addAttribute("verify", verify);
+//        model.addAttribute("username", user.getUsername());
+//        model.addAttribute("email", user.getEmail());
+//        model.addAttribute(new User());
+//        if (user.getPassword().equals(verify)) {
+//           return "user/index";
+//        }
+//        else {
+//            model.addAttribute("error", "Passwords do not match");
+//            return "user/add";
+//        }
+        if(errors.hasErrors()){
+            return "user/index";
         }
-        else {
-            model.addAttribute("error", "Passwords do not match");
-            return "user/add";
-        }
+        UserData.add(user);
+        return "redirect:";
+
 
     }
 
