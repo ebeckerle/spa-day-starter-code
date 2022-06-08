@@ -4,6 +4,7 @@ import org.launchcode.spaday.data.UserData;
 import org.launchcode.spaday.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,7 +19,7 @@ public class UserController {
     }
 
     @PostMapping
-    public String processAddUserForm(@ModelAttribute @Valid User user, Error errors, Model model) {
+    public String processAddUserForm(@ModelAttribute @Valid User user, Errors errors, Model model) {
 //        model.addAttribute("user", user);
 //        model.addAttribute("verify", verify);
 //        model.addAttribute("username", user.getUsername());
@@ -32,7 +33,7 @@ public class UserController {
 //            return "user/add";
 //        }
         if(errors.hasErrors()){
-            return "user/index";
+            return "user/add";
         }
         UserData.add(user);
         return "redirect:";
